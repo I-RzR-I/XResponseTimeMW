@@ -15,6 +15,8 @@ And one more thing that was added is an action filter that can provide execution
 
 > `Install-Package XResponseTimeMW -Version x.x.x.x`
 
+[![NuGet Version](https://img.shields.io/nuget/v/XResponseTimeMW.svg?style=flat)](https://www.nuget.org/packages/XResponseTimeMW/)
+
 ## Content
 1. [USING](docs/usage.md)
 1. [CHANGELOG](docs/CHANGELOG.md)
