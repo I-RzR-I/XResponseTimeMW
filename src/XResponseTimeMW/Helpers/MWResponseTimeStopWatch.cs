@@ -25,11 +25,15 @@ using XResponseTimeMW.Abstractions;
 
 namespace XResponseTimeMW.Helpers
 {
+    /// <inheritdoc cref="IMWResponseTimeStopWatch" />
     public class MWResponseTimeStopWatch : Stopwatch, IMWResponseTimeStopWatch
     {
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="XResponseTimeMW.Helpers.MWResponseTimeStopWatch" /> class. 
+        /// </summary>
+        /// <remarks></remarks>
         public MWResponseTimeStopWatch() : base()
         {
-
         }
     }
 }
