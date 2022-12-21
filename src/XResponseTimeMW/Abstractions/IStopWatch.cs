@@ -16,6 +16,9 @@
 
 namespace XResponseTimeMW.Abstractions
 {
+    /// <summary>
+    ///     Stop watch
+    /// </summary>
     public interface IStopWatch
     {
         /// <summary>

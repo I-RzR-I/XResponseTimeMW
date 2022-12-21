@@ -16,7 +16,6 @@
 
 #region U S A G E S
 
-using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using XResponseTimeMW.Abstractions;
@@ -27,6 +26,10 @@ using XResponseTimeMW.Abstractions;
 
 namespace XResponseTimeMW.Middleware
 {
+    /// <summary>
+    ///     Response time middleware
+    /// </summary>
+    /// <remarks></remarks>
     public class ResponseTimeMiddleware
     {
         /// <summary>
@@ -59,7 +62,6 @@ namespace XResponseTimeMW.Middleware
             context.Response.OnStarting(state =>
             {
                 watch.Stop();
-
                 context.Response.Headers["X-Response-Time"] = $"{watch.ElapsedMilliseconds}ms";
 
                 return Task.CompletedTask;

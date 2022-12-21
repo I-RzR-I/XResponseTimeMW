@@ -19,7 +19,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
 
 #endregion
 
@@ -29,11 +28,8 @@ namespace WebAppCore.Pages
     [IgnoreAntiforgeryToken]
     public class ErrorModel : PageModel
     {
-        private readonly ILogger<ErrorModel> _logger;
-
-        public ErrorModel(ILogger<ErrorModel> logger)
+        public ErrorModel()
         {
-            _logger = logger;
         }
 
         public string RequestId { get; set; }

@@ -26,6 +26,9 @@ using XResponseTimeMW.Abstractions;
 
 namespace XResponseTimeMW.Filters
 {
+    /// <summary>
+    ///     Response time attribute
+    /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public class ResponseTime : Attribute, IActionFilter
     {
@@ -52,9 +55,7 @@ namespace XResponseTimeMW.Filters
         /// <param name="context">Current HTTP context</param>
         /// <returns></returns>
         /// <remarks></remarks>
-        private static IActionResponseTimeStopWatch GetWatch(HttpContext context)
-        {
-            return context.RequestServices.GetService<IActionResponseTimeStopWatch>();
-        }
+        private static IActionResponseTimeStopWatch GetWatch(HttpContext context) =>
+            context.RequestServices.GetService<IActionResponseTimeStopWatch>();
     }
 }

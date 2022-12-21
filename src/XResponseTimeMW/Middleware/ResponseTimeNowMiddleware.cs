@@ -26,6 +26,10 @@ using Microsoft.AspNetCore.Http;
 
 namespace XResponseTimeMW.Middleware
 {
+    /// <summary>
+    ///     Response time now middleware
+    /// </summary>
+    /// <remarks></remarks>
     public class ResponseTimeNowMiddleware
     {
         /// <summary>
@@ -58,7 +62,6 @@ namespace XResponseTimeMW.Middleware
             context.Response.OnStarting(state =>
             {
                 currentWatch.Stop();
-
                 context.Response.Headers["X-Response-Time-Now"] = $"{currentWatch.ElapsedMilliseconds}ms";
 
                 return Task.CompletedTask;

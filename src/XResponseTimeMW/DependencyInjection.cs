@@ -26,6 +26,10 @@ using XResponseTimeMW.Middleware;
 
 namespace XResponseTimeMW
 {
+    /// <summary>
+    ///     MW Dependency Injection
+    /// </summary>
+    /// <remarks></remarks>
     public static class DependencyInjection
     {
         /// <summary>
@@ -51,6 +55,7 @@ namespace XResponseTimeMW
         public static IApplicationBuilder UseResponseTimeMiddleware(this IApplicationBuilder app)
         {
             app.UseMiddleware<ResponseTimeMiddleware>();
+
             return app.UseMiddleware<ResponseTimeNowMiddleware>();
         }
     }

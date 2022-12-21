@@ -20,6 +20,9 @@
 
 namespace XResponseTimeMW.Abstractions
 {
+    /// <summary>
+    ///     MX Response time stop watch
+    /// </summary>
     public interface IMWResponseTimeStopWatch : IStopWatch
     {
     }
