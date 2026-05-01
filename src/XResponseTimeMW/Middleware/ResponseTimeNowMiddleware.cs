@@ -24,7 +24,7 @@ using Microsoft.AspNetCore.Http;
 
 #endregion
 
-namespace XResponseTimeMW.Middleware
+namespace RzR.Web.Middleware.ResponseTime.Middleware
 {
     /// <summary>
     ///     Response time now middleware
@@ -39,7 +39,7 @@ namespace XResponseTimeMW.Middleware
         private readonly RequestDelegate _next;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="XResponseTimeMW.Middleware.ResponseTimeNowMiddleware" /> class.
+        ///     Initializes a new instance of the <see cref="ResponseTimeNowMiddleware" /> class.
         /// </summary>
         /// <param name="next"></param>
         /// <remarks></remarks>

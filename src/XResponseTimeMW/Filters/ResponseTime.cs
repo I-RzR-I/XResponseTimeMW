@@ -20,11 +20,11 @@ using System;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
-using XResponseTimeMW.Abstractions;
+using RzR.Web.Middleware.ResponseTime.Abstractions;
 
 #endregion
 
-namespace XResponseTimeMW.Filters
+namespace RzR.Web.Middleware.ResponseTime.Filters
 {
     /// <summary>
     ///     Response time attribute

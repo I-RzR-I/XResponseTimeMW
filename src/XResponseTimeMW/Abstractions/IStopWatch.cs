@@ -14,7 +14,7 @@
 //  </summary>
 // ***********************************************************************
 
-namespace XResponseTimeMW.Abstractions
+namespace RzR.Web.Middleware.ResponseTime.Abstractions
 {
     /// <summary>
     ///     Stop watch

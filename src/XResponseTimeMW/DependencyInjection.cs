@@ -18,13 +18,13 @@
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using XResponseTimeMW.Abstractions;
-using XResponseTimeMW.Helpers;
-using XResponseTimeMW.Middleware;
+using RzR.Web.Middleware.ResponseTime.Abstractions;
+using RzR.Web.Middleware.ResponseTime.Helpers;
+using RzR.Web.Middleware.ResponseTime.Middleware;
 
 #endregion
 
-namespace XResponseTimeMW
+namespace RzR.Web.Middleware.ResponseTime
 {
     /// <summary>
     ///     MW Dependency Injection

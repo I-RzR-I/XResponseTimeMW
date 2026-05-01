@@ -18,13 +18,13 @@
 
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-using XResponseTimeMW.Abstractions;
+using RzR.Web.Middleware.ResponseTime.Abstractions;
 
 // ReSharper disable ClassNeverInstantiated.Global
 
 #endregion
 
-namespace XResponseTimeMW.Middleware
+namespace RzR.Web.Middleware.ResponseTime.Middleware
 {
     /// <summary>
     ///     Response time middleware
@@ -39,7 +39,7 @@ namespace XResponseTimeMW.Middleware
         private readonly RequestDelegate _next;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="XResponseTimeMW.Middleware.ResponseTimeMiddleware" /> class.
+        ///     Initializes a new instance of the <see cref="ResponseTimeMiddleware" /> class.
         /// </summary>
         /// <param name="next"></param>
         /// <remarks></remarks>

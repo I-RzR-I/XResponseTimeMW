@@ -17,17 +17,17 @@
 #region U S A G E S
 
 using System.Diagnostics;
-using XResponseTimeMW.Abstractions;
+using RzR.Web.Middleware.ResponseTime.Abstractions;
 
 #endregion
 
-namespace XResponseTimeMW.Helpers
+namespace RzR.Web.Middleware.ResponseTime.Helpers
 {
     /// <inheritdoc cref="IActionResponseTimeStopWatch"/>
     public class ActionResponseTimeStopWatch : Stopwatch, IActionResponseTimeStopWatch
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="XResponseTimeMW.Helpers.ActionResponseTimeStopWatch" /> class. 
+        ///     Initializes a new instance of the <see cref="ActionResponseTimeStopWatch" /> class. 
         /// </summary>
         /// <remarks></remarks>
         public ActionResponseTimeStopWatch() : base()
