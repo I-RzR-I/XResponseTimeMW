@@ -30,7 +30,7 @@ namespace RzR.Web.Middleware.ResponseTime.Filters
     ///     Response time attribute
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-    public class ResponseTime : Attribute, IActionFilter
+    public class ResponseTimeAttribute : Attribute, IActionFilter
     {
         /// <inheritdoc />
         public void OnActionExecuting(ActionExecutingContext context)
