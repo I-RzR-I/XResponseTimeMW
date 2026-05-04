@@ -14,8 +14,6 @@
 //  </summary>
 // ***********************************************************************
 
-
-
 // ReSharper disable InconsistentNaming
 
 namespace RzR.Web.Middleware.ResponseTime.Abstractions

@@ -29,7 +29,7 @@ using System.Resources;
 
 [assembly: AssemblyCompany("RzR ®")]
 [assembly: AssemblyProduct("HTTP response time")]
-[assembly: AssemblyCopyright("Copyright © 2022 RzR All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright © 2022-2026 RzR All rights reserved.")]
 [assembly: AssemblyTrademark("® RzR™")]
 [assembly: AssemblyDescription("Generate and write in HTTPContext response header variables request execution time('X-Response-Time') and also provide execution time for an action('X-Action-Response-Time'). This thing may help you when is needed to analyze too mutch time-consuming applications.")]
 

@@ -21,6 +21,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
 using RzR.Web.Middleware.ResponseTime.Abstractions;
+using RzR.Web.Middleware.ResponseTime.Internals;
 
 #endregion
 
@@ -35,6 +36,10 @@ namespace RzR.Web.Middleware.ResponseTime.Filters
         /// <inheritdoc />
         public void OnActionExecuting(ActionExecutingContext context)
         {
+            var options = ResponseTimeWriter.ResolveOptions(context.HttpContext);
+            if (ResponseTimeWriter.IsSuppressed(context.HttpContext, options))
+                return;
+
             IStopWatch watch = GetWatch(context.HttpContext);
             watch.Reset();
             watch.Start();
@@ -43,10 +48,14 @@ namespace RzR.Web.Middleware.ResponseTime.Filters
         /// <inheritdoc />
         public void OnActionExecuted(ActionExecutedContext context)
         {
+            var options = ResponseTimeWriter.ResolveOptions(context.HttpContext);
+            if (ResponseTimeWriter.IsSuppressed(context.HttpContext, options))
+                return;
+
             IStopWatch watch = GetWatch(context.HttpContext);
             watch.Stop();
 
-            context.HttpContext.Response.Headers["X-Action-Response-Time"] = $"{watch.ElapsedMilliseconds}ms";
+            ResponseTimeWriter.WriteAction(context.HttpContext.Response, watch.ElapsedMilliseconds, options);
         }
 
         /// <summary>
@@ -56,6 +65,6 @@ namespace RzR.Web.Middleware.ResponseTime.Filters
         /// <returns></returns>
         /// <remarks></remarks>
         private static IActionResponseTimeStopWatch GetWatch(HttpContext context) =>
-            context.RequestServices.GetService<IActionResponseTimeStopWatch>();
+            context.RequestServices.GetRequiredService<IActionResponseTimeStopWatch>();
     }
 }

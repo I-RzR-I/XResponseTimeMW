@@ -1,9 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>netstandard2.0;net5.0;net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<Authors>RzR</Authors>
+		<Copyright>RzR</Copyright>
+		<Owners>RzR</Owners>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<PackageIcon>PackageIcon.png</PackageIcon>
 		<NoWarn>$(NoWarn);CS8032</NoWarn>
@@ -46,10 +48,22 @@
 		</None>
 	</ItemGroup>
 
-	<ItemGroup>
+	<ItemGroup Condition="
+			   '$(TargetFramework)' == 'netstandard2.0' 
+			   OR '$(TargetFramework)' == 'net5.0' 
+			   OR '$(TargetFramework)' == 'net6.0'">
 		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition="
+		   '$(TargetFramework)' == 'net6.0' 
+		   Or '$(TargetFramework)' == 'net7.0' 
+		   Or '$(TargetFramework)' == 'net8.0' 
+		   Or '$(TargetFramework)' == 'net9.0'">
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
 
 	<ProjectExtensions>
@@ -57,7 +71,7 @@
 			<UserProperties BuildVersion_StartDate="2022/8/5" />
 		</VisualStudio>
 	</ProjectExtensions>
-	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	<!--<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<Exec Command="PowerShell -NoProfile -ExecutionPolicy unrestricted -file $(SolutionDir)../build/pack.ps1 $(ConfigurationName)" />
-	</Target>
+	</Target>-->
 </Project>
