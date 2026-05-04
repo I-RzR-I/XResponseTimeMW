@@ -21,7 +21,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using XResponseTimeMW;
+using RzR.Web.Middleware.ResponseTime;
 
 #endregion
 
@@ -41,7 +41,7 @@ namespace WebAppCore
         {
             services.AddRazorPages();
 
-            services.RegisterResponseTimeServices();
+            services.AddResponseTime();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,7 +58,7 @@ namespace WebAppCore
 
             app.UseAuthorization();
 
-            app.UseResponseTimeMiddleware();
+            app.UseResponseTime();
 
             app.UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
         }

@@ -20,21 +20,26 @@ using System;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
-using XResponseTimeMW.Abstractions;
+using RzR.Web.Middleware.ResponseTime.Abstractions;
+using RzR.Web.Middleware.ResponseTime.Internals;
 
 #endregion
 
-namespace XResponseTimeMW.Filters
+namespace RzR.Web.Middleware.ResponseTime.Filters
 {
     /// <summary>
     ///     Response time attribute
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-    public class ResponseTime : Attribute, IActionFilter
+    public class ResponseTimeAttribute : Attribute, IActionFilter
     {
         /// <inheritdoc />
         public void OnActionExecuting(ActionExecutingContext context)
         {
+            var options = ResponseTimeWriter.ResolveOptions(context.HttpContext);
+            if (ResponseTimeWriter.IsSuppressed(context.HttpContext, options))
+                return;
+
             IStopWatch watch = GetWatch(context.HttpContext);
             watch.Reset();
             watch.Start();
@@ -43,10 +48,14 @@ namespace XResponseTimeMW.Filters
         /// <inheritdoc />
         public void OnActionExecuted(ActionExecutedContext context)
         {
+            var options = ResponseTimeWriter.ResolveOptions(context.HttpContext);
+            if (ResponseTimeWriter.IsSuppressed(context.HttpContext, options))
+                return;
+
             IStopWatch watch = GetWatch(context.HttpContext);
             watch.Stop();
 
-            context.HttpContext.Response.Headers["X-Action-Response-Time"] = $"{watch.ElapsedMilliseconds}ms";
+            ResponseTimeWriter.WriteAction(context.HttpContext.Response, watch.ElapsedMilliseconds, options);
         }
 
         /// <summary>
@@ -56,6 +65,6 @@ namespace XResponseTimeMW.Filters
         /// <returns></returns>
         /// <remarks></remarks>
         private static IActionResponseTimeStopWatch GetWatch(HttpContext context) =>
-            context.RequestServices.GetService<IActionResponseTimeStopWatch>();
+            context.RequestServices.GetRequiredService<IActionResponseTimeStopWatch>();
     }
 }

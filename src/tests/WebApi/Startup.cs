@@ -22,7 +22,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using XResponseTimeMW;
+using RzR.Web.Middleware.ResponseTime;
 
 #endregion
 
@@ -43,7 +43,7 @@ namespace WebApi
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "WebApi", Version = "v1"}); });
 
-            services.RegisterResponseTimeServices();
+            services.AddResponseTime();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,7 +60,7 @@ namespace WebApi
 
             app.UseAuthorization();
 
-            app.UseResponseTimeMiddleware();
+            app.UseResponseTime();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }

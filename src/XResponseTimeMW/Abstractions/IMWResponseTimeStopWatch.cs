@@ -14,11 +14,9 @@
 //  </summary>
 // ***********************************************************************
 
-
-
 // ReSharper disable InconsistentNaming
 
-namespace XResponseTimeMW.Abstractions
+namespace RzR.Web.Middleware.ResponseTime.Abstractions
 {
     /// <summary>
     ///     MX Response time stop watch

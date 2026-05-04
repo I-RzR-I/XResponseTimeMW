@@ -17,19 +17,19 @@
 #region U S A G E S
 
 using System.Diagnostics;
-using XResponseTimeMW.Abstractions;
+using RzR.Web.Middleware.ResponseTime.Abstractions;
 
 #endregion
 
 // ReSharper disable InconsistentNaming
 
-namespace XResponseTimeMW.Helpers
+namespace RzR.Web.Middleware.ResponseTime.Helpers
 {
     /// <inheritdoc cref="IMWResponseTimeStopWatch" />
     public class MWResponseTimeStopWatch : Stopwatch, IMWResponseTimeStopWatch
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="XResponseTimeMW.Helpers.MWResponseTimeStopWatch" /> class. 
+        ///     Initializes a new instance of the <see cref="MWResponseTimeStopWatch" /> class. 
         /// </summary>
         /// <remarks></remarks>
         public MWResponseTimeStopWatch() : base()

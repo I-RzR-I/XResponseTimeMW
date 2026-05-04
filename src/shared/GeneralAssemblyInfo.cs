@@ -29,7 +29,7 @@ using System.Resources;
 
 [assembly: AssemblyCompany("RzR ®")]
 [assembly: AssemblyProduct("HTTP response time")]
-[assembly: AssemblyCopyright("Copyright © 2022 RzR All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright © 2022-2026 RzR All rights reserved.")]
 [assembly: AssemblyTrademark("® RzR™")]
 [assembly: AssemblyDescription("Generate and write in HTTPContext response header variables request execution time('X-Response-Time') and also provide execution time for an action('X-Action-Response-Time'). This thing may help you when is needed to analyze too mutch time-consuming applications.")]
 
@@ -41,6 +41,6 @@ using System.Resources;
 
 [assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.MainAssembly)]
 
-[assembly: AssemblyVersion("1.0.1.1818")]
-[assembly: AssemblyFileVersion("1.0.1.1818")]
-[assembly: AssemblyInformationalVersion("1.0.1.1818")]
+[assembly: AssemblyVersion("2.0.0.6861")]
+[assembly: AssemblyFileVersion("2.0.0.6861")]
+[assembly: AssemblyInformationalVersion("2.0.0.6861")]
